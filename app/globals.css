@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+body{
+  background-color: #1B1813;
+    
+}
+
+*{
+  /* color: #F0ECD9; */
+}
+
+/* globals.css */
+html {
+  scroll-behavior: smooth;
+}
