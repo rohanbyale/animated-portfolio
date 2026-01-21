@@ -1,0 +1,90 @@
+.bento-wrapper {
+  padding: 60px 20px;
+  background-color: #000; /* Dark background */
+  width: 100%;
+}
+
+.bento-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  /* Adjusts columns automatically based on screen size */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  perspective: 1000px;
+}
+
+.bento-card {
+  position: relative;
+  background: #0d0d0d; /* Dark gray card */
+  border: 1px solid #1a1a1a;
+  border-radius: 24px;
+  padding: 40px;
+  overflow: hidden;
+  transition: border-color 0.4s ease;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.bento-card:hover {
+  border-color: #333;
+}
+
+/* Feature card (makes first card wider) */
+.card-wide {
+  grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+  .card-wide {
+    grid-column: span 1;
+  }
+}
+
+/* THE GLOW EFFECT */
+.glow-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(
+    600px circle at var(--x, 50%) var(--y, 50%),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  opacity: var(--opacity, 0);
+  transition: opacity 0.3s ease;
+}
+
+/* CONTENT STYLING */
+.card-inner {
+  position: relative;
+  z-index: 2; /* Ensures text is always on top */
+}
+
+.card-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #6366f1; /* Indigo color for the label */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  color: #ffffff; /* Pure white for visibility */
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.card-description {
+  color: #94a3b8; /* Slate gray for readable description */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 90%;
+}
